@@ -1,18 +1,40 @@
-<rss version="2.0">
-<channel>
-<title>Статьи</title>
-<link>http://diletant.media</link>
-<description/>
-<lastBuildDate>Tue, 08 Jan 2019 18:03:32 +0300</lastBuildDate>
-<ttl>60</ttl>
-    <item>
-        <title>Ранен в первые недели войны</title>
-        <link>http://diletant.media/articles/44969301/</link>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+    <channel>
+<atom:link href="https://mp3-muzyka.ru/rss.xml" rel="self" type="application/rss+xml"/>
+<title>
+<![CDATA[ mp3-muzyka.ru ]]>
+</title>
+<link>
+<![CDATA[ https://mp3-muzyka.ru/ ]]>
+</link>
+<description>
+<![CDATA[ mp3-muzyka.ru Music listen free ]]>
+</description>
+<lastBuildDate>Tue, 08 Jan 2019 12:00:05 +0100</lastBuildDate>
+<image>
+<url>https://mp3-muzyka.ru/result_files/home.png</url>
+<title>
+<![CDATA[ mp3-muzyka.ru ]]>
+</title>
+<link>
+<![CDATA[ https://mp3-muzyka.ru/ ]]>
+</link>
+</image>
+<item>
+        <title>
+            <![CDATA[ Явь - ЯАVЬ ]]>
+        </title>
+        <link>
+            <![CDATA[ https://mp3-muzyka.ru/album/1446661100/Явь.html ]]>
+        </link>
         <description>
-            <p> Конкурс &laquo;Первая Мировая война в&nbsp;истории моей семьи&raquo; </p>
+        <![CDATA[
+            Слушайте и скачивайте все песни из альбома Явь. Исполнитель: ЯАVЬ
+        ]]>
         </description>
-        <pubDate>Tue, 08 Jan 2019 15:10:37 +0300</pubDate>
-        </item>
+        <pubDate>2019-01-07 21:00:05</pubDate>
+        <media:thumbnail url="https://mp3-muzyka.ru/cache/images/f1c898d85893fdefe16a644dbf233f7a100x100bb-85.png"/>
+ </item>
 
 </channel>
 </rss>
