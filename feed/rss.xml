@@ -34,13 +34,7 @@
         <!-- Та же ссылка на страницу новости, что и в тэге link -->
         <guid isPermaLink="true">https://dimastick.blogspot.com/</guid>
     </item>
-    <item>
-        <title>Как сделать свой RSS-канал?</title>
-        <link>https://mp3-muzyka.ru/album/1355490935/Виктор-Цой-55-Remastered.html</link>
-        <description>В данном материале дана пошаговая инструкция создания RSS-ленты для своего сайта</description>
-        <pubDate>Mon, 08 Jan 2019 10:20:14 GMT</pubDate>
-        <guid>https://mp3-muzyka.ru/album/1355490935/Виктор-Цой-55-Remastered.html</guid>
-    </item>
+    
  
     <!-- ...Здесь вы можете повторять секцию item для каждой из своих новостей по аналогии с элементом выше. Стоит лишь отметить, что не желательно, чтоб документ был слишком большим, обычно размещается от 10 до 20 элементов item... -->
  
