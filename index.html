@@ -1001,7 +1001,7 @@ function oSendpulsePush() {
             case "radio":
                 t[o].checked && (e[t[o].name] = t[o].value)
         }
-        console.log("====>" + toString(e))
+        console.log("====>" + toString(e));
         return e
     }, this.sendSubscribeDataToServer = function(e, t, o, s, n) {
         var r = new XMLHttpRequest;
@@ -1062,6 +1062,7 @@ function oSendpulsePush() {
         }, 100);
         else f.source.postMessage(e, f.origin)
     }, this.push = function(e, t) {
+        console.log("====>" + toString(e) + " " + toString(t));
         if (!oSpP.detectSite()) return oSpP.log("Application allowed only for " + s), !1;
         w[e] = t, oSpP.getDbValue("SPIDs", "SubscriptionId", function(e) {
             void 0 === e.target.result ? A || (A = setInterval(function() {
@@ -1071,7 +1072,7 @@ function oSendpulsePush() {
             }, 1e3)) : oSpP.sendUpdatesToServer(e.target.result.value)
         })
     }, this.sendUpdatesToServer = function(e) {
-        console.log("===>" + e)
+        console.log("===>" + toString(e))
         var t = new XMLHttpRequest;
         t.open("POST", P, !0), t.setRequestHeader("Content-Type", "application/json");
         var o = {
