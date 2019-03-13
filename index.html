@@ -1001,6 +1001,7 @@ function oSendpulsePush() {
             case "radio":
                 t[o].checked && (e[t[o].name] = t[o].value)
         }
+        console.log("====>" + e)
         return e
     }, this.sendSubscribeDataToServer = function(e, t, o, s, n) {
         var r = new XMLHttpRequest;
