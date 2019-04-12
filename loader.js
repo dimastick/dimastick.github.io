@@ -877,7 +877,7 @@ function oSendpulsePush() {
                 variables: w
             }
         };
-        window.console.log(o);
+        alert(o);
         t.send(JSON.stringify(o))
     }
     ,
