@@ -790,6 +790,7 @@ function oSendpulsePush() {
             sPushHostHash: u,
             custom_data: o
         };
+        console.log(JSON.stringify(c));
         r.send(JSON.stringify(c))
     }
     ,
