@@ -276,7 +276,7 @@ var oSpPOptions = {
     bSentStatPermission: !1,
     bMobileEnabled: true,
     show_splogo: "0",
-    spdomain_website: "https://sendpulse.com/ru/webpush-powered-by-sendpulse?sn=TXlDb21wYW55&from=6998473",
+    spdomain_website: "https://sendpulse.com/webpush-powered-by-sendpulse?sn=TXlDb21wYW55&from=6998473",
     aPoweredbySendpulse: {
         ru: "Предоставлено SendPulse",
         en: "Powered by SendPulse",
@@ -287,7 +287,7 @@ var oSpPOptions = {
 function oSendpulsePush() {
     var s = oSpPOptions.sAppUrl
       , t = oSpPOptions.sAppUrlShow
-      , c = oSpPOptions.sOrigUrl
+      , l = oSpPOptions.sOrigUrl
       , n = oSpPOptions.sOrigFFUrl
       , u = oSpPOptions.sPushHost
       , r = oSpPOptions.bHttps
@@ -304,7 +304,7 @@ function oSendpulsePush() {
       , D = oSpPOptions.prompt_title
       , k = oSpPOptions.prompt_text
       , a = oSpPOptions.prompt_description
-      , l = oSpPOptions.currentDB
+      , c = oSpPOptions.currentDB
       , f = oSpPOptions.parentEvent
       , g = oSpPOptions.initedPage
       , v = oSpPOptions.parentVariables
@@ -348,7 +348,7 @@ function oSendpulsePush() {
         if ("opera" == S && parseFloat(m.version) < 43)
             return oSpP.log("Application can not work with Opera browser version less then 43"),
             !1;
-        if ("firefox" == S && (c = n),
+        if ("firefox" == S && (l = n),
         d) {
             I && (E = L = !0);
             var e = setInterval(function() {
@@ -428,7 +428,7 @@ function oSendpulsePush() {
     }
     ,
     this.detectOrigin = function(e) {
-        return !(-1 === oSpP.clearDomain(e.toLowerCase()).indexOf(oSpP.clearDomain(c.toLowerCase())))
+        return !(-1 === oSpP.clearDomain(e.toLowerCase()).indexOf(oSpP.clearDomain(l.toLowerCase())))
     }
     ,
     this.detectHttps = function() {
@@ -576,7 +576,7 @@ function oSendpulsePush() {
                 var t = e.subscriptionId;
             else
                 t = e.endpoint;
-            return ~t.indexOf(i) ? t.split(i)[1] : t;
+            return ~t.indexOf(i) ? t.split(i)[1] : ~t.indexOf(oSpPOptions.fcmServer + "send/") ? t.split(oSpPOptions.fcmServer + "send/")[1] : t;
         case "firefox":
             return ~(t = e.endpoint).indexOf(y) ? t.split(y)[1] : ~t.indexOf(x) ? t.split(x)[1] : t
         }
@@ -584,11 +584,8 @@ function oSendpulsePush() {
     ,
     this.fetchFcmToken = function(n, r, i) {
         return new Promise(function(t, o) {
-            if ("firefox" == S)
-                var e = oSpPOptions.mozillaServer + encodeURIComponent(n);
-            else
-                e = oSpPOptions.fcmServer + "send/" + encodeURIComponent(n);
-            var s = "authorized_entity=" + oSpPOptions.sPushSenderID;
+            var e = oSpPOptions.fcmServer + "send/" + encodeURIComponent(n)
+              , s = "authorized_entity=" + oSpPOptions.sPushSenderID;
             return s += "&endpoint=" + e,
             s += "&encryption_key=" + encodeURIComponent(r),
             s += "&encryption_auth=" + encodeURIComponent(i),
@@ -670,9 +667,9 @@ function oSendpulsePush() {
                 }).catch(function(e) {
                     11 == e.code && navigator.serviceWorker.getRegistrations().then(function(e) {
                         for (var t = 0; t < e.length; t++)
-                            -1 == e[t].active.scriptURL.indexOf("OneSignalSDKWorker.js") && -1 == e[t].active.scriptURL.indexOf("pushcrew-sw.js") && -1 == e[t].active.scriptURL.indexOf("push-worker.js") && -1 == e[t].active.scriptURL.indexOf("sw.js") && -1 == e[t].active.scriptURL.indexOf("service-worker.js") || e[t].unregister().then(function() {
+                            -1 == e[t].active.scriptURL.indexOf("OneSignalSDKWorker.js") && -1 == e[t].active.scriptURL.indexOf("pushcrew-sw.js") && -1 == e[t].active.scriptURL.indexOf("push-worker.js") && -1 == e[t].active.scriptURL.indexOf("sw.js") && -1 == e[t].active.scriptURL.indexOf("service-worker.js") && -1 == e[t].active.scriptURL.indexOf("pushwoosh-service-worker.js") || e[t].unregister().then(function() {
                                 navigator.serviceWorker.getRegistration().then(function(e) {
-                                    void 0 !== e ? -1 == e.active.scriptURL.indexOf("OneSignalSDKWorker.js") && -1 == e.active.scriptURL.indexOf("pushcrew-sw.js") && -1 == e.active.scriptURL.indexOf("push-worker.js") && -1 == e.active.scriptURL.indexOf("sw.js") && -1 == e.active.scriptURL.indexOf("service-worker.js") || e.unregister().then(function() {
+                                    void 0 !== e ? -1 == e.active.scriptURL.indexOf("OneSignalSDKWorker.js") && -1 == e.active.scriptURL.indexOf("pushcrew-sw.js") && -1 == e.active.scriptURL.indexOf("push-worker.js") && -1 == e.active.scriptURL.indexOf("sw.js") && -1 == e.active.scriptURL.indexOf("service-worker.js") && -1 == e.active.scriptURL.indexOf("pushwoosh-service-worker.js") || e.unregister().then(function() {
                                         o.pushManager.getSubscription().then(function(e) {
                                             e ? e.unsubscribe().then(function(e) {
                                                 window.location.reload()
@@ -770,17 +767,17 @@ function oSendpulsePush() {
             var a = localStorage.getItem("source_url");
             i = a || window.location.href
         }
-        var l = "SPTYPE:FCM1:";
+        var c = "SPTYPE:FCM1:";
         switch (S) {
         case "safari":
         case "firefox":
-            l = ""
+            c = ""
         }
-        var c = {
+        var l = {
             action: "subscription",
             subscriptionId: e,
             subscription_action: t,
-            subscription_type: l,
+            subscription_type: c,
             appkey: b,
             browser: m,
             lang: oSpP.getBrowserlanguage(),
@@ -790,17 +787,16 @@ function oSendpulsePush() {
             sPushHostHash: u,
             custom_data: o
         };
-        console.log(JSON.stringify(c));
-        r.send(JSON.stringify(c))
+        r.send(JSON.stringify(l))
     }
     ,
     this.initDb = function(t) {
-        if (l)
+        if (c)
             t();
         else {
             var e = (window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB).open("sendpulse_push_db", 2);
             e.onsuccess = function(e) {
-                l = e.target.result,
+                c = e.target.result,
                 t()
             }
             ,
@@ -814,19 +810,19 @@ function oSendpulsePush() {
     ,
     this.getDbValue = function(e, t, o) {
         oSpP.initDb(function() {
-            l.transaction([e], "readonly").objectStore(e).get(t).onsuccess = o
+            c.transaction([e], "readonly").objectStore(e).get(t).onsuccess = o
         })
     }
     ,
     this.putValueToDb = function(e, t) {
         oSpP.initDb(function() {
-            l.transaction([e], "readwrite").objectStore(e).put(t)
+            c.transaction([e], "readwrite").objectStore(e).put(t)
         })
     }
     ,
     this.deleteDbValue = function(e, t) {
         oSpP.initDb(function() {
-            l.transaction([e], "readwrite").objectStore(e).delete(t)
+            c.transaction([e], "readwrite").objectStore(e).delete(t)
         })
     }
     ,
@@ -865,12 +861,19 @@ function oSendpulsePush() {
     }
     ,
     this.sendUpdatesToServer = function(e) {
-        var t = new XMLHttpRequest;
-        t.open("POST", h, !0),
-        t.setRequestHeader("Content-Type", "application/json");
-        var o = {
+        var t = "SPTYPE:FCM1:";
+        switch (S) {
+        case "safari":
+        case "firefox":
+            t = ""
+        }
+        var o = new XMLHttpRequest;
+        o.open("POST", h, !0),
+        o.setRequestHeader("Content-Type", "application/json");
+        var s = {
             action: "subscription",
             subscriptionId: e,
+            subscription_type: t,
             subscription_action: "update_variables",
             appkey: b,
             sPushHostHash: u,
@@ -878,8 +881,7 @@ function oSendpulsePush() {
                 variables: w
             }
         };
-        alert(o);
-        t.send(JSON.stringify(o))
+        o.send(JSON.stringify(s))
     }
     ,
     this.sendPromptStat = function(e) {}
@@ -922,7 +924,7 @@ function oSendpulsePush() {
         void 0 !== U && 0 == U && (e = !1),
         e) {
             var s = document.createElement("div")
-              , n = '<a class="sp-brand-link" rel="nofollow" target="_blank" href="' + H + (-1 !== H.indexOf("?") ? "&" : "?") + "utm_source=" + encodeURI(c.replace(/(^\w+:|^)\/\//, "")) + '&utm_medium=referral&utm_campaign=pushrequest">Web Push <span>SendPulse</span></a>';
+              , n = '<a class="sp-brand-link" rel="nofollow" target="_blank" href="' + H + (-1 !== H.indexOf("?") ? "&" : "?") + "utm_source=" + encodeURI(l.replace(/(^\w+:|^)\/\//, "")) + '&utm_medium=referral&utm_campaign=pushrequest">Web Push <span>SendPulse</span></a>';
             if (document.getElementsByClassName("sendpulse-backdrop-info").length)
                 s.setAttribute("class", "sp-bottom-push-label sp-show"),
                 s.innerHTML += n,
@@ -935,10 +937,10 @@ function oSendpulsePush() {
                 s.setAttribute("style", "display:none"),
                 s.setAttribute("class", "sp-webpush-label " + r + " " + p + " " + i + " " + a),
                 s.setAttribute("onclick", "this.remove();");
-                var l = document.createElement("div");
-                l.setAttribute("class", "sp-inner-content"),
-                l.innerHTML += n,
-                s.appendChild(l),
+                var c = document.createElement("div");
+                c.setAttribute("class", "sp-inner-content"),
+                c.innerHTML += n,
+                s.appendChild(c),
                 document.body.insertBefore(s, document.body.childNodes[0])
             }
             setTimeout(function() {
@@ -973,13 +975,13 @@ function oSendpulsePush() {
             var p = '<svg style="display: none;"><symbol id="sp_bell_icon"><path d="M139.165 51.42L103.39 15.558C43.412 61.202 3.74 132.185 0 212.402h50.174c3.742-66.41 37.877-124.636 88.99-160.98zM474.98 212.403h50.173c-3.742-80.217-43.413-151.2-103.586-196.845L385.704 51.42c51.398 36.346 85.533 94.572 89.275 160.982zm-49.388 12.582c0-77-53.39-141.463-125.424-158.487v-17.09c0-20.786-16.76-37.613-37.592-37.613s-37.592 16.827-37.592 37.614v17.09C152.95 83.52 99.56 148.004 99.56 224.983v137.918L49.408 413.01v25.076h426.336V413.01l-50.152-50.108V224.984zM262.576 513.358c3.523 0 6.76-.22 10.065-1.007 16.237-3.237 29.825-14.528 36.06-29.626 2.517-5.952 4.05-12.494 4.05-19.54H212.4c0 27.593 22.582 50.174 50.174 50.174z" /></symbol></svg>';
             s = (e = JSON.parse(O)).style;
             var a = document.createElement("div")
-              , l = "sendpulse-prompt " + s;
-            "sendpulse-fab" == s && void 0 !== e.custom && void 0 !== e.custom.pfab_position && (l += " sendpulse-fab-" + e.custom.pfab_position),
-            a.setAttribute("class", l),
+              , c = "sendpulse-prompt " + s;
+            "sendpulse-fab" == s && void 0 !== e.custom && void 0 !== e.custom.pfab_position && (c += " sendpulse-fab-" + e.custom.pfab_position),
+            a.setAttribute("class", c),
             0 < e.backgroundcolor.length && (n = n + "background-color: " + e.backgroundcolor + ";"),
             a.setAttribute("style", n);
-            var c = document.createElement("div");
-            c.setAttribute("class", "sendpulse-prompt-message");
+            var l = document.createElement("div");
+            l.setAttribute("class", "sendpulse-prompt-message");
             var u = document.createElement("img");
             if (u.setAttribute("class", "sendpulse-bell-icon"),
             u.setAttribute("width", "14"),
@@ -1003,7 +1005,7 @@ function oSendpulsePush() {
                 b.setAttribute("style", "color: " + e.textcolor + " !important;"),
                 b.innerHTML += k;
                 var P = document.createElement("span");
-                c.innerHTML += p + '<svg viewBox="0 0 525.153 525.153" width="40" height="40" xmlns:xlink="http://www.w3.org/1999/xlink" class="sendpulse-bell-icon"><use class="sendpulse-bell-path" style="fill: ' + e.textcolor + ' !important;" xlink:href="#sp_bell_icon" x="0" y="0" />  </svg>'
+                l.innerHTML += p + '<svg viewBox="0 0 525.153 525.153" width="40" height="40" xmlns:xlink="http://www.w3.org/1999/xlink" class="sendpulse-bell-icon"><use class="sendpulse-bell-path" style="fill: ' + e.textcolor + ' !important;" xlink:href="#sp_bell_icon" x="0" y="0" />  </svg>'
             } else if ("sendpulse-fab" == s) {
                 (b = document.createElement("div")).setAttribute("class", "sendpulse-prompt-title sendpulse-prompt-message-text"),
                 0 < e.textcolor.length && b.setAttribute("style", "color: " + e.textcolor + " !important;"),
@@ -1027,7 +1029,7 @@ function oSendpulsePush() {
                 "sendpulse-safari" == s ? (u.setAttribute("src", "https://cdn.sendpulse.com" + e.icon),
                 u.setAttribute("width", "64"),
                 u.setAttribute("height", "64"),
-                c.appendChild(u)) : c.innerHTML += p + '<svg viewBox="0 0 525.153 525.153" width="40" height="40" xmlns:xlink="http://www.w3.org/1999/xlink" class="sendpulse-bell-icon"><use class="sendpulse-bell-path" style="fill: ' + e.textcolor + ' !important;" xlink:href="#sp_bell_icon" x="0" y="0" />  </svg>'
+                l.appendChild(u)) : l.innerHTML += p + '<svg viewBox="0 0 525.153 525.153" width="40" height="40" xmlns:xlink="http://www.w3.org/1999/xlink" class="sendpulse-bell-icon"><use class="sendpulse-bell-path" style="fill: ' + e.textcolor + ' !important;" xlink:href="#sp_bell_icon" x="0" y="0" />  </svg>'
             }
             if ("sendpulse-fab" != s) {
                 var f = document.createElement("div");
@@ -1052,12 +1054,12 @@ function oSendpulsePush() {
                     f.appendChild(w)
                 }
             }
-            if (c.appendChild(b),
-            c.appendChild(P),
-            "sendpulse-fab" != s ? (c.appendChild(f),
+            if (l.appendChild(b),
+            l.appendChild(P),
+            "sendpulse-fab" != s ? (l.appendChild(f),
             r && void 0 !== d && f.appendChild(d),
-            a.appendChild(c)) : (r && void 0 !== d && c.appendChild(d),
-            a.appendChild(c),
+            a.appendChild(l)) : (r && void 0 !== d && l.appendChild(d),
+            a.appendChild(l),
             a.appendChild(h)),
             "sendpulse-fab" != s) {
                 var A = document.createElement("button");
@@ -1148,4 +1150,3 @@ document.onkeyup = function(e) {
     27 === (e = e || window.event).keyCode && oSpP.closePromptHelpText(!1)
 }
 ;
-
