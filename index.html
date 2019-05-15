@@ -3,16 +3,35 @@
    <head>
       <title>MyPage</title>
       <!--<script charset="UTF-8" src="//cdn.sendpulse.com/js/push/4f87136fdb030a2b72852c913e1359e8_1.js" async></script>-->
-      <script charset="UTF-8" src="loader.js" async></script>
+      <!--<script charset="UTF-8" src="loader.js" async></script>-->
    </head>
    <body bgcolor="#E6E6FC">
-      <h1 align='center'>for testing purposes</h1>
+      <!--<h1 align='center'>for testing purposes</h1>
       <center>
          <input class="sp_push_custom_data" type="text" name="name" size="40" placeholder="Name">
          <input class="sp_push_custom_data" type="text" name="email" size="40" placeholder="Email">
          <input class="sp_push_custom_data" type="text" name="phone" size="40" placeholder="Phone">
          <!--	<input name="submit" value="Subscribe" type='button' class="sp_notify_prompt"> -->
          <input type=submit value="Subscribe"  class="sp_notify_prompt" >
-      </center>
+      </center>-->
+   <script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+<script type="text/javascript">
+var Pushwoosh = Pushwoosh || [];
+Pushwoosh.push(['init', {
+    logLevel: 'info', // possible values: error, info, debug
+    applicationCode: '3EE5C-15F75', // you application code from Pushwoosh Control Panel
+    safariWebsitePushID: 'web.com.example.domain', //  unique reverse-domain string, obtained in you Apple Developer Portal. Only needed if you send push notifications to Safari browser
+    defaultNotificationTitle: 'Pushwoosh', // sets a default title for push notifications
+    defaultNotificationImage: 'https://yoursite.com/img/logo-medium.png', // URL to custom custom notification image
+    autoSubscribe: true, // or true. If true, prompts a user to subscribe for pushes upon SDK initialization
+    subscribeWidget: {
+      enabled: true
+    },
+    userId: 'user_id', // optional, set custom user ID
+    tags: {
+        'Name': 'John Smith'     // optional, set custom Tags
+    }                    
+}]);
+</script>
    </body>
 </html>
