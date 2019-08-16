@@ -12,10 +12,6 @@
       
       
       <script charset="UTF-8" src="//cdn.sendpulse.com/js/push/a7327bf4135f6c9301058679639d59a2_1.js" async></script>
-<!--       <script src="//static-login.sendpulse.com/apps/fc3/build/loader.js" sp-form-id="fdcdf1b0e16f7c57e59378aa634d06a4e27b5341a6c99bd5cb0480663602b97b"></script> -->
-      
-<!--       <script charset="UTF-8" src="loader.js" async></script> -->
-      
     
    <!-- Google Tag Manager -->
    <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -26,6 +22,20 @@
    <!-- End Google Tag Manager -->
    </head>
    <body bgcolor="#E6E6FC">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <script type="text/babel">
+        class Hello extends React.Component {
+            render() {
+              return <h1>Привет, Eugene</h1>;
+            }
+          }
+          ReactDOM.render(
+              <Hello />,
+              document.getElementById("header")
+          )
+    </script>
       <h1 align='center'>for testing purposes</h1>
       <center>
          <input class="sp_push_custom_data" type="text" name="Name" size="40" placeholder="Name">
