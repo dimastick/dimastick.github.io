@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>MyPage</title>
-   <script charset="UTF-8" src="//web.webpushs.com/js/push/4f87136fdb030a2b72852c913e1359e8_1.js" async></script>
-    
-   <!-- Google Tag Manager -->
-   <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <head>
+        <title>MyPage</title>
+
+        <style>
+            .second::before,
+            .new::before {
+                content: "✿";
+            }
+        </style>
+
+        <script charset="UTF-8" src="//web.webpushs.com/js/push/4f87136fdb030a2b72852c913e1359e8_1.js" async></script>
+
+        <!-- Google Tag Manager -->
+        <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
    })(window,document,'script','dataLayer','GTM-58LWPS9');</script>-->
-   <!-- End Google Tag Manager -->
-   </head>
-   <body bgcolor="#E6E6FC">
-      <div id="app"></div>
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
-    <script type="text/babel">
-        class Hello extends React.Component {
-            render() {
-              return <h1>Just App</h1>;
+        <!-- End Google Tag Manager -->
+    </head>
+    <body bgcolor="#E6E6FC">
+        <div id="app"></div>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+        <script type="text/babel">
+            class Hello extends React.Component {
+                render() {
+                    return <h1>Just App</h1>;
+                }
             }
-          }
-          ReactDOM.render(
-              <Hello />,
-              document.getElementById("app")
-          )
-    </script>
-      <h1 align='center'>for testing purposes</h1>
-      <center>
-         <input class="sp_push_custom_data" type="text" name="Name" size="40" placeholder="Name">
-         <input class="sp_push_custom_data" type="text" name="Email" size="40" placeholder="Email">
-         <input class="sp_push_custom_data" type="text" name="Phone" size="40" placeholder="Phone">
-<!--          <input name="submit" value="Subscribe" type='button' class="sp_notify_prompt"> -->
-<!--          <input type=submit value="Subscribe"  class="sp_notify_prompt" > -->
-      </center>
-      <a href="#" class="sp_notify_prompt">Включить уведомления</a>
-   
-   <!-- Google Tag Manager (noscript) -->
-   <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58LWPS9"
+            ReactDOM.render(<Hello />, document.getElementById("app"));
+        </script>
+        <h1 align="center">for testing purposes</h1>
+        <center>
+            <input class="sp_push_custom_data" type="text" name="Name" size="40" placeholder="Name" />
+            <input class="sp_push_custom_data" type="text" name="Email" size="40" placeholder="Email" />
+            <input class="sp_push_custom_data" type="text" name="Phone" size="40" placeholder="Phone" />
+            <!--          <input name="submit" value="Subscribe" type='button' class="sp_notify_prompt"> -->
+            <!--          <input type=submit value="Subscribe"  class="sp_notify_prompt" > -->
+        </center>
+        <a href="#" class="sp_notify_prompt">Включить уведомления</a>
+
+        <!-- Google Tag Manager (noscript) -->
+        <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58LWPS9"
    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
-   <!-- End Google Tag Manager (noscript) -->
-<!--<a href="#" sp-show-form="132330">Регистрация посетителей</a>-->
-     
-      <div>
-         ::before
+        <!-- End Google Tag Manager (noscript) -->
+        <!--<a href="#" sp-show-form="132330">Регистрация посетителей</a>-->
 
-   <header>
-      <h1>Добро пожаловать</h1>
-   </header>
+        <div class="new">
+            <header>
+                <h1>Добро пожаловать</h1>
+            </header>
 
-   <div >
-      ::before
-      <p>Это ваша главная страница,  большинство посетителей увидит именно ее, когда они впервые посещают ваш магазин.</p>
-      <p>Вы можете изменить этот текст, отредактировав страницу через меню «Страницы» на панели управления.</p>
-      <script src="//web.webformscr.com/apps/fc3/build/loader.js" sp-form-id="ee6bf8e96a976535bdb5cffa2d8660da7d525981869912a8b5b24246dc87d213" defer></script>
-   </div>
-</div>
-         
-      
-      
-   </body>  
+            <div class="second">
+                <p>Это ваша главная страница, большинство посетителей увидит именно ее, когда они впервые посещают ваш магазин.</p>
+                <p>Вы можете изменить этот текст, отредактировав страницу через меню «Страницы» на панели управления.</p>
+                <script src="//web.webformscr.com/apps/fc3/build/loader.js" sp-form-id="ee6bf8e96a976535bdb5cffa2d8660da7d525981869912a8b5b24246dc87d213" defer></script>
+            </div>
+        </div>
+    </body>
 </html>
